@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Bootstrap Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styling for card selection */
+        .card.selected {
+            border: 3px solid #007bff; /* Blue border for selected card */
+        }
+
+        /* Make the card size match the image */
+        .card {
+            width: 190px; /* Set width of the card to match image width */
+            height: 320px; /* Set height of the card to match image height */
+            margin-bottom: 5px; /* Add spacing below the card */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensure content does not overflow */
+            padding: 0;
+        }
+
+        /* Image in the card */
+        .card-img-top {
+            height: 100%; /* Set image to occupy 60% of the card height */
+            width: 100%; /* Ensure the image fills the width of the card */
+            background-size: cover;
+            background-position: center;
+            object-fit: cover;
+        }
+
+        /* Card body content (title, description, etc.) */
+        .card-body {
+            flex-grow: 1; /* Allow the content to expand */
+            padding: 0.5rem; /* Padding around the content */
+        }
+
+        .card-body h5 {
+            font-size: 1.2rem; /* Adjust title font size */
+            margin-bottom: 0.5rem; /* Add space below title */
+        }
+
+        .card-body p {
+            font-size: 0.9rem; /* Adjust description font size */
+            margin-bottom: 1rem; /* Add space below description */
+        }
+        /* Optional: Adjust image size to match card dimensions */
+        .card-img-top {
+            height: 100%;
+            width: 100%;
+        }
+        .card:hover {
+          transform: scale(1.05); /* Slightly scale up the card */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for better hover effect */
+          transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+        }
+
+        .card:hover {
+            opacity: 0.9;
+        }
+
+        .year-title {
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <form method="GET">
+        <input type="text" name="query" placeholder="Enter movie name" value="{{ request.args.get('query', '') }}">
+        <button type="submit">Search</button>
+    </form>
+
+</div>
+
+<script>
+    function selectCard(cardElement) {
+        // Remove the 'selected' class from any previously selected card
+        let selectedCard = document.querySelector('.card.selected');
+        if (selectedCard) {
+            selectedCard.classList.remove('selected');
+        }
+        // Add the 'selected' class to the clicked card
+        cardElement.classList.add('selected');
+        // Set the index of the selected card in the hidden input
+        let cardIndex = cardElement.getAttribute('data-index');
+        document.getElementById('selected_index').value = cardIndex;
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
