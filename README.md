@@ -1,5 +1,5 @@
 <div style="text-align:center">
-<h1 style="font-size:5rem;">🎬 CineScore</h1>
+<p style="font-size:50px;">🎬 CineScore</h1>
 </div>
 
 
