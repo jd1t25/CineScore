@@ -1,7 +1,4 @@
-<p style="font-size:3rem;" align="center">🎬 CineScore</h1>
-<div align="center">
-  <span style="font-size:120px;">CineScore!</span>
-</div>
+<p style="font-size:3rem;" align="center">🎬 CineScore</p>
 
 # 📝 Project Overview
 
