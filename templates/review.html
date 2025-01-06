@@ -6,12 +6,11 @@
     <title>CineScore</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Custom styling to center the heading */
         .center-heading {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Take up full screen height */
+            height: 100vh;
         }
         .title-text {
           font-size: 5rem;
@@ -20,8 +19,8 @@
           font-size:1.3rem
         }
         .table-review-text {
-            max-height: 160px; /* Set a fixed height */
-            overflow-y: auto; /* Add a vertical scrollbar if the text is too long */
+            max-height: 160px;
+            overflow-y: auto;
             display: block;
             white-space: normal;
             padding: 15px 20px 5px 20px;
@@ -36,21 +35,14 @@
 </head>
 <body>
     <div class="container mt-5">
-        <!-- Centering the heading using Bootstrap text-center class -->
         <h1 class="text-center"> CineScore </h1>
-      <!--<p class="text-center center-heading"> {{ title }} </p>-->
-
-        <!--<p class="text-center">This is where you can submit reviews.</p>-->
-        <!-- Add your review form or content here -->
     </div>
     <br><br>
     <div>
       <p class="text-center title-text"> {{ title }} </p>
-      <!--<p class="text-center user-reviews-text"> User Review's </p>-->
     </div>
-
+    <!--  Table Creation -->
     <div class="container mt-5">
-        <!--<h1 class="text-center">User Reviews</h1>-->
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -60,9 +52,9 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- User reviews database and predicted score -->
                 {% for review in reviews %}
                 <tr>
-                    <!--<td class="table-review-text">{{ review.user_review }}</td>-->
                     <td>
                       <div class="table-review-text">{{ review.user_review }}</div>
                     </td>
@@ -73,12 +65,6 @@
             </tbody>
         </table>
     </div>
-    <!--<div class="container">-->
-    <!--    <div class="center-heading">-->
-    <!--        <h1>CineScore</h1>-->
-    <!--    </div>-->
-    <!--</div>-->
-    <!-- Bootstrap JS (optional for interactive features) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

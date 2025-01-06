@@ -8,12 +8,12 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 import re
 
-
+# Setting header as to simulate as a browser request
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win 64 ; x64) Apple WeKit /537.36(KHTML , like Gecko) Chrome/80.0.3987.162 Safari/537.36"
 }
 
-
+# Get all image links from the website
 def get_img(df):
     urldb = []
     imagedb = []
@@ -25,34 +25,28 @@ def get_img(df):
         result = requests.get(url, headers=headers)
         soup = bs(result.text, "html.parser")
         div = soup.find("div", class_="ipc-media")
-        # print(div)
         img = div.find("img", class_="ipc-image")
         if img:
             img_src = img.get("src")
         else:
             img_src = None
         imagedb.append(img_src)
-        # print(img_src)
 
     return imagedb
 
-
+# Scapes all user scores and reviews
 def get_reviews(tconst):
     review_score = []
     review_review = []
+    ## The constucted link
     url = f"https://www.imdb.com/title/{tconst}/reviews"
-    # print(url)
     page = requests.get(url, headers=headers)
     soup = bs(page.content, "html.parser")
-    # print(soup.prettify())
     reviews = soup.find_all("article", class_="sc-d99cd751-1 kzUfxa user-review-item")
     if reviews:
         for review in reviews:
             rating = review.find("span", class_="ipc-rating-star--rating")
-            # reviewtext = review.find(attrs={"data-testid": "review_overflow"})
             reviewtext = review.find(attrs={"data-testid": "review-overflow"})
-            # if reviewtext is not None:
-            #     print(reviewtext.get_text(strip=True))
             print(rating)
             if reviewtext is not None:
                 if rating is None:
@@ -69,14 +63,14 @@ def get_reviews(tconst):
     else:
         return None
 
-
+# Regex for HTML Tags
 TAG_RE = re.compile(r"<[^>]+>")
 
-
+# Remove the html tags
 def remove_tags(text):
     return TAG_RE.sub("", text)
 
-
+# Preprocessing the Text
 def preprocess_text(sen):
     sentence = sen.lower()
 
@@ -102,17 +96,13 @@ def preprocess_text(sen):
 
     return sentence
 
-
+# Preprocessing on user reviews
 def get_processed(unseen_reviews):
     unseen_processed = []
     for review in unseen_reviews:
         review = preprocess_text(review)
         unseen_processed.append(review)
-        # print(unseen_processed)
-    # df = pd.DataFrame(unseen_processed)
-    # df.to_csv("unseen.csv")
 
-    # print(len(unseen_processed))
     word_tokenizer = Tokenizer()
     maxlen = 100
 
@@ -123,27 +113,16 @@ def get_processed(unseen_reviews):
 
     unseen_padded = pad_sequences(unseen_tokenized, padding="post", maxlen=maxlen)
 
-    # df = pd.DataFrame(unseen_padded)
-    # print(unseen_padded.shape)
-    # print(unseen_padded)
     return unseen_padded
 
-
+# Download Stopwords
 def download_stopwords():
-    """
-    This function checks if the NLTK stopwords dataset is available.
-    If not, it downloads it.
-    """
     try:
-        # Check if stopwords are already downloaded
         nltk.data.find("corpora/stopwords")
         print("Stopwords are already downloaded.")
     except LookupError:
-        # If stopwords are not found, download them
         print("Stopwords not found, downloading...")
         nltk.download("stopwords")
 
-    # Return the stopwords list
     from nltk.corpus import stopwords
-
     return stopwords.words("english")
