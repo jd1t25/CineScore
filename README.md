@@ -166,3 +166,17 @@ https://www.imdb.com/title/tt0816692/reviews
    - Maybe add additional parameters, such as genre, release year, or IMDb rating.
 ### 3. **Apply your own Ideas**
    - Bring your unique vision/ideas and enhancements into copying and adding into this project.
+
+<br>
+
+# 🚨 Common Errors & Solutions
+
+- If you get error `tensorflow not found` while installing `tensorflow` or something related to it check `python` version and its compatibility
+   - As of right now the latest version of `python` is `3.13` but the latest version of `tensorflow==2.10` only supports till `python==3.10`
+   - You can manage python version using
+      - `pyenv` for `linux`
+      - `conda` for `windows`
+- Also if you want to use CUDA check its version matches with python and tensorflow supported compatibility
+
+   You can check compatible version here:
+   https://www.tensorflow.org/install/source_windows#gpu
