@@ -1,0 +1,9 @@
+tensorflow<2.11
+flask
+flask-session
+pandas
+requests
+beautifulsoup4
+numpy
+nltk
+matplotlib
