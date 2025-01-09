@@ -2,24 +2,14 @@
 
 <br>
 
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
 
-  <div style="flex-basis: 48%; margin-bottom: 10px;">
-    <img src="assets/home.png" alt="Home" style="width: 100%; height: auto;">
-  </div>
+| Home | Suggestions |
+|---------|---------|
+| ![Home](assets/home.png) | ![Suggestions](assets/suggestions.png) |
+| Review1 | Review 2 |
+| ![Review 1](assets/review1.png) | ![Review 2](assets/review2.png) |
 
-  <div style="flex-basis: 48%; margin-bottom: 10px;">
-    <img src="assets/suggestions.png" alt="Image 2" style="width: 100%; height: auto;">
-  </div>
-
-  <div style="flex-basis: 48%; margin-bottom: 10px;">
-    <img src="assets/review1.png" alt="Image 3" style="width: 100%; height: auto;">
-  </div>
-
-  <div style="flex-basis: 48%; margin-bottom: 10px;">
-    <img src="assets/review2.png" alt="Image 4" style="width: 100%; height: auto;">
-  </div>
-
+<br>
 # 📝 Project Overview
 
 This project (assignment) is a Flask-based web application that combines **LSTM-based sentiment analysis** and **IMDb web scraping** to provide a platform where users can:
