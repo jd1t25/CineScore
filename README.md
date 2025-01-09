@@ -11,7 +11,7 @@
 
 <br>
 
-# 📝 Project Overview
+# :memo: Project Overview
 
 This project (assignment) is a Flask-based web application that combines **LSTM-based sentiment analysis** and **IMDb web scraping** to provide a platform where users can:
 1. Search for movies on IMDb database on a text input (e.g., movie name or keyword).
@@ -25,7 +25,7 @@ The app scrapes official IMDb user reviews and computes sentiment scores for eac
 <br>
 
 
-# 🌟 Features
+# :star: Features
 
 - **Movie Search**: Users can input a movie or keyword, and the app will search IMDb for relevant movies.
 - **Image Scraping**: The app scrapes movie images from the official IMDb webpage.
@@ -37,7 +37,7 @@ The app scrapes official IMDb user reviews and computes sentiment scores for eac
 
 
 
-# 💻 Installation
+# :computer: Installation
 
 1. **Clone the Repository**:
 
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 
 <br>
 
-# 🚀 Running the App
+# :rocket: Running the App
 
 
 To start the Flask server, run the following command:
@@ -72,7 +72,7 @@ python app.py
 
 <br>
 
-## 📚 Datasets and Resources
+## :books: Datasets and Resources
 
 
 
@@ -98,7 +98,7 @@ python app.py
 
 <br>
 
-# 📁 Project Structure
+# :file_folder: Project Structure
 ```
 CineScore
 ├── app.py
@@ -125,7 +125,7 @@ CineScore
 
 <br>
 
-# ⚙️ How It Works
+# :gear: How It Works
 
 1. First, the user provides their favorite movie as input.
 ```markdown
@@ -169,7 +169,7 @@ https://www.imdb.com/title/tt0816692/reviews
 
 <br>
 
-# 💡 Room for Improvements
+# :bulb: Room for Improvements
 
 ### 1. **Use Database**
    - You could use database using `SQLAlchemy` for getting suggestions in search bar as user type.
@@ -180,7 +180,7 @@ https://www.imdb.com/title/tt0816692/reviews
 
 <br>
 
-# 🚨 Common Errors & Solutions
+# :rotating_light: Common Errors & Solutions
 
 - If you get error `tensorflow not found` while installing `tensorflow` or something related to it check `python` version and its compatibility
    - As of right now the latest version of `python` is `3.13` but the latest version of `tensorflow==2.10` only supports till `python==3.10`
