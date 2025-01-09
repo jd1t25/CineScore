@@ -13,6 +13,7 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win 64 ; x64) Apple WeKit /537.36(KHTML , like Gecko) Chrome/80.0.3987.162 Safari/537.36"
 }
 
+
 # Get all image links from the website
 def get_img(df):
     urldb = []
@@ -34,6 +35,7 @@ def get_img(df):
 
     return imagedb
 
+
 # Scapes all user scores and reviews
 def get_reviews(tconst):
     review_score = []
@@ -42,10 +44,10 @@ def get_reviews(tconst):
     url = f"https://www.imdb.com/title/{tconst}/reviews"
     page = requests.get(url, headers=headers)
     soup = bs(page.content, "html.parser")
-    reviews = soup.find_all("article", class_="sc-d99cd751-1 kzUfxa user-review-item")
+    reviews = soup.find_all("article", class_="user-review-item")
     if reviews:
         for review in reviews:
-            rating = review.find("span", class_="ipc-rating-star--rating")
+            rating = review.find("span", class_="ipc-rating-star")
             reviewtext = review.find(attrs={"data-testid": "review-overflow"})
             print(rating)
             if reviewtext is not None:
@@ -63,12 +65,15 @@ def get_reviews(tconst):
     else:
         return None
 
+
 # Regex for HTML Tags
 TAG_RE = re.compile(r"<[^>]+>")
+
 
 # Remove the html tags
 def remove_tags(text):
     return TAG_RE.sub("", text)
+
 
 # Preprocessing the Text
 def preprocess_text(sen):
@@ -96,6 +101,7 @@ def preprocess_text(sen):
 
     return sentence
 
+
 # Preprocessing on user reviews
 def get_processed(unseen_reviews):
     unseen_processed = []
@@ -115,6 +121,7 @@ def get_processed(unseen_reviews):
 
     return unseen_padded
 
+
 # Download Stopwords
 def download_stopwords():
     try:
@@ -125,4 +132,5 @@ def download_stopwords():
         nltk.download("stopwords")
 
     from nltk.corpus import stopwords
+
     return stopwords.words("english")

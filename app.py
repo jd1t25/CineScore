@@ -1,18 +1,9 @@
-import tensorflow as tf
 from tensorflow.keras.models import load_model
 from flask import Flask, render_template, request, session, redirect, url_for
 import pandas as pd
-import requests
-from bs4 import BeautifulSoup
-
 
 import pandas as pd
 import numpy as np
-import re
-import nltk
-from nltk.corpus import stopwords
-from numpy import array
-import matplotlib.pyplot as plt
 
 from helpers.helper import get_img, get_processed, get_reviews, download_stopwords
 from flask_session import Session
@@ -39,7 +30,8 @@ def preload():
     lstm_model = load_model(r"./static/db/lstm123.keras")
     download_stopwords()
 
-# Home Page - User Input 
+
+# Home Page - User Input
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
@@ -50,6 +42,7 @@ def index():
     return render_template(
         "index.html",
     )
+
 
 # Suggestion Page
 @app.route("/search", methods=["GET", "POST"])
@@ -63,6 +56,7 @@ def search():
     query = session.get("search_text", [])
     if query:
         suggestions = df[df["primaryTitle"].str.contains(query, case=False, na=False)]
+        # imgdata = get_img(suggestions)
         imgdata = [None] * len(suggestions)
         suggestions["imgurl"] = imgdata
         session["suggestions"] = suggestions
@@ -73,6 +67,7 @@ def search():
         suggestions=suggestions,
         svg_file="images/no.svg",
     )
+
 
 # Reviews Page
 @app.route("/reviews", methods=["GET", "POST"])
