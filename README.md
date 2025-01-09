@@ -10,6 +10,7 @@
 | ![Review 1](assets/review1.png) | ![Review 2](assets/review2.png) |
 
 <br>
+
 # 📝 Project Overview
 
 This project (assignment) is a Flask-based web application that combines **LSTM-based sentiment analysis** and **IMDb web scraping** to provide a platform where users can:
