@@ -13,7 +13,7 @@
 
 # :memo: Project Overview
 
-This project (assignment) is a Flask-based web application that combines **LSTM-based sentiment analysis** and **IMDb web scraping** to provide a platform where users can:
+This project is a Flask-based web application that combines **LSTM-based sentiment analysis** and **IMDb web scraping** to provide a platform where users can:
 1. Search for movies on IMDb database on a text input (e.g., movie name or keyword).
 2. View a list of movie options with images fetched from their official IMDb pages.
 3. Select a movie and view its user reviews along with ratings.
